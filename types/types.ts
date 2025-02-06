@@ -1,10 +1,10 @@
-export type OpenAIModel = 'gpt-3.5-turbo' | 'gpt-4';
+export type AIModel = 'gpt-3.5-turbo' | 'gpt-4' | 'claude-2' | 'claude-instant-1';
 
 export interface TranslateBody {
   inputLanguage: string;
   outputLanguage: string;
   inputCode: string;
-  model: OpenAIModel;
+  model: AIModel;
   apiKey: string;
 }
 

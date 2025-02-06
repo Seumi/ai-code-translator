@@ -1,5 +1,5 @@
 import { TranslateBody } from '@/types/types';
-import { OpenAIStream } from '@/utils';
+import { OpenAIStream, ClaudeStream } from '@/utils';
 
 export const config = {
   runtime: 'edge',
@@ -10,13 +10,24 @@ const handler = async (req: Request): Promise<Response> => {
     const { inputLanguage, outputLanguage, inputCode, model, apiKey } =
       (await req.json()) as TranslateBody;
 
-    const stream = await OpenAIStream(
-      inputLanguage,
-      outputLanguage,
-      inputCode,
-      model,
-      apiKey,
-    );
+    let stream;
+    if (model.startsWith('claude')) {
+      stream = await ClaudeStream(
+        inputLanguage,
+        outputLanguage,
+        inputCode,
+        model,
+        apiKey,
+      );
+    } else {
+      stream = await OpenAIStream(
+        inputLanguage,
+        outputLanguage,
+        inputCode,
+        model,
+        apiKey,
+      );
+    }
 
     return new Response(stream);
   } catch (error) {

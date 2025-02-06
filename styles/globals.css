@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-border: #e5e7eb;
+  --color-input-bg: #ffffff;
+  --color-button-bg: #1F2937;
+  --color-button-text: #e5e7eb;
+  --color-highlight: #3b82f6;
+}
+
+.dark {
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #1F2937;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #9ca3af;
+  --color-border: #374151;
+  --color-input-bg: #1F2937;
+  --color-button-bg: #374151;
+  --color-button-text: #f9fafb;
+  --color-highlight: #60a5fa;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.code-block {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+input, select, textarea {
+  background-color: var(--color-input-bg);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+button {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+a {
+  color: var(--color-highlight);
+}
+
+a:hover {
+  text-decoration: underline;
+}
